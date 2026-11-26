@@ -5,23 +5,23 @@ CC = gcc
 CCFLAGS = -Wall
 
 # fichiers du projet
-SRC = individu.c mainP1.c
+SRC = score.c mainP2.c
 OBJ = $(SRC:.c=.o)
-EXEC = run.out
+EXEC = mainP2.out
 
 
 # règle initiale
 all: $(EXEC)
 
 # dépendance des .h
-individu.o: individu.h
+score.o: score.h
 # règles de compilation
 %.o: %.c
 	$(CC) $(CCFLAGS) -o $@ -c $<
 	
 # règles d'édition de liens
 $(EXEC): $(OBJ)
-	$(CC) $(CCFLAGS) -o $@ $^ 
+	$(CC) $(CCFLAGS) -o $@ $^ -lm
 	
 
 # règles supplémentaires
