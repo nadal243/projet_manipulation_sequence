@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "individu.h"
+#include "score.h"
 
 // fonction pour lire les informations d'un individu depuis un fichier
 void IdentifieIndividu(FILE* Pfichier, t_indiv* Ppers) {
@@ -33,6 +34,16 @@ void libereIndividu(t_indiv* Ppers) {
     free(Ppers->nom);
     free(Ppers->prenom);
     free(Ppers->sequence);
+}
+
+
+// fonction permettant de calculer la similarité
+
+float calculeSimilarite(t_indiv* Ppers, char* sequence2) {
+    
+    float percent = Pourcentage (Ppers->sequence, sequence2); 
+
+    return percent; 
 }
 
 

@@ -16,6 +16,7 @@ int main() {
     printf("saisir une chaine de caractere : "); 
     scanf("%s", ch2); 
     printf("\n"); 
+    
     // calcul du score Needleman
     int score = Needleman(ch1, ch2);
 
