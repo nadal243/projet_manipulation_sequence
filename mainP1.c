@@ -3,13 +3,13 @@
 #include <stdlib.h>
 
 int main(){
-    t_indiv* Ppers = malloc(sizeof(t_indiv));
+    t_indiv* Ppers = malloc(10*sizeof(t_indiv));
     if (Ppers == NULL) {
         printf("Erreur lors de l'allocation memoire.\n");
         return 1;
     }
 
-    FILE* Pfichier; 
+    FILE* Pfichier = malloc(sizeof(FILE));
     Pfichier = fopen("ADN.txt", "r");
     if (Pfichier == NULL) {
         printf("Erreur lors de l'ouverture du fichier.\n");
@@ -17,10 +17,18 @@ int main(){
         exit(1);
     }
 
-    IdentifieIndividu(Pfichier, Ppers);
+    for (int i = 0; i < 10; i++) {
+    IdentifieIndividu(Pfichier, &Ppers[i]);
+    }
 
-    AfficheIndividu(Ppers);
-    libereIndividu(Ppers);
+    for (int i = 9; i >= 0; i--) {
+        AfficheIndividu(&Ppers[i]);
+    }
+
+    for (int i = 0; i < 10; i++) {
+        libereIndividu(&Ppers[i]);
+    }
+    
     fclose(Pfichier);
     free(Ppers);
 
