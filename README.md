@@ -1,4 +1,4 @@
-# TP6 - Manipulation de sequences ADN
+# Manipulation de sequences ADN
 
 ## Presentation
 
